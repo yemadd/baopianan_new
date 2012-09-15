@@ -1,0 +1,190 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/lvse3" >
+
+    <ViewFlipper
+        android:id="@+id/viewFilpper"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_5"
+                android:drawableTop="@drawable/btn_1"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignBaseline="@+id/button1"
+                android:layout_alignBottom="@+id/button1"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/button1"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_4"
+                android:drawableTop="@drawable/btn_2"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Button01"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/button1"
+                android:layout_marginTop="4dp"
+                android:layout_toLeftOf="@+id/button2"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_3"
+                android:text="色系军团"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Button02"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignBaseline="@+id/Button01"
+                android:layout_alignBottom="@+id/Button01"
+                android:layout_alignLeft="@+id/button2"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_3"
+                android:text="囧东西"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Button03"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/Button01"
+                android:layout_marginTop="4dp"
+                android:layout_toLeftOf="@+id/button2"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_2"
+                android:drawableTop="@drawable/btn_6"
+                android:textColor="#6495ED"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Button04"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignLeft="@+id/Button02"
+                android:layout_alignTop="@+id/Button03"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_1"
+                android:drawableTop="@drawable/btn_7"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_2"
+                android:drawableTop="@drawable/icon_1"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignBaseline="@+id/btn1"
+                android:layout_alignBottom="@+id/btn1"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/btn1"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_1"
+                android:drawableTop="@drawable/icon_2"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Btn01"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/btn1"
+                android:layout_marginTop="4dp"
+                android:layout_toLeftOf="@+id/btn2"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_2"
+                android:drawableTop="@drawable/icon_3"
+                android:text="色系军团"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Btn02"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignBaseline="@+id/Btn01"
+                android:layout_alignLeft="@+id/btn2"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_2"
+                android:drawableTop="@drawable/icon_4"
+                android:text="囧东西"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Btn03"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/Btn01"
+                android:layout_marginTop="4dp"
+                android:layout_toLeftOf="@+id/btn2"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_2"
+                android:drawableTop="@drawable/icon_5"
+                android:textColor="#6495ED"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/Btn04"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignLeft="@+id/Btn02"
+                android:layout_alignTop="@+id/Btn03"
+                android:background="@drawable/item_select"
+                android:drawableBottom="@drawable/btn_1"
+                android:drawableTop="@drawable/icon_6"
+                android:textColor="#5F9EA0"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textColor="#ffffffff"
+                android:textSize="30dp"
+                android:text="@string/aboutUs" />
+        </RelativeLayout>
+    </ViewFlipper>
+
+</RelativeLayout>
