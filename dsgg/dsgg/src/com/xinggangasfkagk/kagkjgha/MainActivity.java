@@ -1,4 +1,4 @@
-package com.example.dsgg;
+package com.xinggangasfkagk.kagkjgha;
 
 import com.kuguo.ad.KuguoAdsManager;
 
@@ -39,9 +39,9 @@ public class MainActivity extends Activity implements OnClickListener {
         enter_righttoleft = AnimationUtils.loadAnimation(this, R.anim.enter_righttoleft);
         exit_righttoleft = AnimationUtils.loadAnimation(this, R.anim.exit_righttoleft);
         KuguoAdsManager.getInstance().receivePushMessage(MainActivity.this, true);
-		 KuguoAdsManager.getInstance().showKuguoSprite(this, 0);
+		 KuguoAdsManager.getInstance().showKuguoSprite(this,0);
 		   
-	     KuguoAdsManager.getInstance().showKuguoSprite(this, 1);
+//	     KuguoAdsManager.getInstance().showKuguoSprite(this, 1);
     
         	btn_1 = (Button)findViewById(R.id.btn1);
         	btn_2 = (Button)findViewById(R.id.btn2);
@@ -102,14 +102,6 @@ public class MainActivity extends Activity implements OnClickListener {
         }
         return super.onTouchEvent(event);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
-
-
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		String str2 = "请继续关注我们的应用，我们会有内容更新！";
@@ -124,7 +116,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.Btn01:
 			Intent intent3 = new Intent();
-			intent3.setClass(this,ListActivity_1.class);
+			intent3.setClass(this,ListActivity_8.class);
 			startActivity(intent3);
 			break;
 		case R.id.Btn02:
@@ -143,7 +135,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.button2:
 			Intent intent8 = new Intent();
-			intent8.setClass(this,ListActivity_1.class);
+			intent8.setClass(this,ListActivity_8.class);
 			startActivity(intent8);
 			break;
 		case R.id.Button01:
@@ -152,9 +144,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(intent9);
 			break;
 		case R.id.Button02:
-			Intent intent10 = new Intent();
-			intent10.setClass(this,ListActivity_1.class);
-			startActivity(intent10);
+			Toast.makeText(this,str2, 1).show();
 			break;
 		case R.id.Button03:
 			Intent intent11 = new Intent();
@@ -163,7 +153,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.Button04:
 			Intent intent12 = new Intent();
-			intent12.setClass(this,ListActivity_1.class);
+			intent12.setClass(this,ListActivity_8.class);
 			startActivity(intent12);
 			break;
 		}

@@ -1,4 +1,4 @@
-package com.example.dsgg;
+package com.xinggangasfkagk.kagkjgha;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -6,28 +6,23 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
+import android.os.Handler;
+import android.os.Message;
 import android.util.FloatMath;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.GestureDetector.OnGestureListener;
 import android.view.View.OnTouchListener;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 public class ImageActivity extends Activity implements OnTouchListener {
@@ -38,7 +33,7 @@ public class ImageActivity extends Activity implements OnTouchListener {
     
     private Matrix matrix=new Matrix();
     private Matrix savedMatrix=new Matrix();
-    
+    private Bitmap bitmap1=null,bitmap2=null;
     static final int NONE = 0;  
     static final int DRAG = 1;  
     static final int ZOOM = 2;  
@@ -53,6 +48,18 @@ public class ImageActivity extends Activity implements OnTouchListener {
 	String fname,path,imageUrl,fpath;
     
     //private GestureDetector gesture;
+	/**这里重写handleMessage方法，接受到子线程数据后更新UI**/
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg){
+            switch(msg.what){
+            case 1:
+                //关闭
+            	   imgview.setImageBitmap(bitmap1);
+                break;
+            }
+        }
+    };
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -66,10 +73,7 @@ public class ImageActivity extends Activity implements OnTouchListener {
 				 path=bl.getString("path");
 			     imageUrl=bl.getString("imageUrl");
 			     fpath = bl.getString("fpath");
-			     System.out.println(fname);
-			     System.out.println(path);
-			     System.out.println(imageUrl);
-			     System.out.println(fpath);
+			   
 		imgview=(ImageView)this.findViewById(R.id.imag);
 		downloadImage();
 		dialog=new ProgressDialog(this);
@@ -93,7 +97,16 @@ public class ImageActivity extends Activity implements OnTouchListener {
 
 		//imgview.setAnimation(AnimationUtils.loadAnimation(this, R.anim.newanim));
 		
-		
+	 
+     //启动一个后台线程
+     handler.post(new Runnable(){
+         public void run() { 
+        	 downloadImage();
+			 Message msg=new Message();
+			 msg.what=1;
+			 handler.sendMessage(msg);  
+         }
+     });  
 		img=(ImageView)this.findViewById(R.id.imag);
 		Matrix mt=img.getImageMatrix();	
 		//mt.postRotate(30);
@@ -186,10 +199,10 @@ public class ImageActivity extends Activity implements OnTouchListener {
 	        try{
 	        	  File file1 = new File(path);
 	        	if(file1.exists()){
-	        		 Bitmap bm = BitmapFactory.decodeFile(path);
+	        		 bitmap1 = BitmapFactory.decodeFile(path);
 	                    //由File获取图片并转为Bitmap
 
-	                   imgview.setImageBitmap(bm);
+	                
 	        	}else{
 
 	            Bitmap bitmap = BitmapFactory.decodeStream(getImageStream(filePath));
@@ -204,10 +217,9 @@ public class ImageActivity extends Activity implements OnTouchListener {
 
 	                if(file2.exists()){     //判断文件是否存在
 
-	                    Bitmap bm = BitmapFactory.decodeFile(path);
+	                  bitmap2 = BitmapFactory.decodeFile(path);
 	                    //由File获取图片并转为Bitmap
-
-	                   imgview.setImageBitmap(bm);
+	                  imgview.setImageBitmap(bitmap2);
 
 	                }
 

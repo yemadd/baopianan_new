@@ -1,10 +1,11 @@
-package com.example.dsgg;
+package com.xinggangasfkagk.kagkjgha;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.kuguo.ad.KuguoAdsManager;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -28,11 +29,11 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 @SuppressWarnings("SdCardPath")
-public class ListActivity_1 extends Activity {
+public class ListActivity_8 extends Activity {
 	Animation myAnimation;
 	ImageView imageView1;
 	private ViewFlipper viewFlipper;
-
+	private ProgressDialog dialog=null;
     private float startX;
 
     private Animation enter_lefttoright;
@@ -44,54 +45,79 @@ public class ListActivity_1 extends Activity {
 	private ListView myList;
 	private List<Map<String, Object>> mData;
 	String[] u = new String[]{
-	"http://img.jdxi.net/upload/2012/9/201209011610355146.jpg",
-	"http://s1.dwstatic.com/group1/M00/F1/A3/e2d68941c6c267dbdfea8f7abfe98ed7.jpg",
-	"http://s1.dwstatic.com/group1/M00/72/9F/7783121a0841e01a33212b8d593f363b.jpg",
-	"http://img.jdxi.net/upload/2012/8/201208261706232213.jpg",
-	"http://img.jdxi.net/upload/2012/8/201208202044145446.jpg",
-	"http://s1.dwstatic.com/group1/M00/72/DC/6ddaec83183246f5cdeec89cbef7d9a9.jpg",
-	"http://s1.dwstatic.com/group1/M00/FD/2F/524af7b72a97e8aa14c65d8804dace13.jpg",
-	"http://pic10.bengou.com/comicdata/sx/sxjtlzbr12022714/1331021139638/1331021139638.jpg",
-	"http://pic10.bengou.com/comicdata/sx/sxjtlzbr12022714/1330323252360/1330323252858.jpg",
-	"http://pic10.bengou.com/comicdata/sx/sxjtlzbr12022714/1330323252360/1330323252360.jpg",
-	"http://pic10.bengou.com/comicdata/sx/sxjtlzbr12022714/1330323252360/1330323253144.jpg",
-	"http://s1.dwstatic.com/group1/M00/B8/22/2fcb102334fa576b3ebdbc2c02264b84.jpg",
-	"http://s1.dwstatic.com/group1/M00/44/7C/491e79b6e6152ff771f5ff91d12fa0f6.jpg",
-	"http://s1.dwstatic.com/group1/M00/3F/1A/71fdff00aa83a633fb70bd45d33b71ed.jpg",
-	"http://s1.dwstatic.com/group1/M00/9D/F5/638b6067e02387bfe390e464b75819d8.jpg",
-	"http://s1.dwstatic.com/group1/M00/15/F0/3df14a6202619dc07a6b8ee38d3b9476.jpg",
-	"http://s1.dwstatic.com/group1/M00/9B/ED/5d95b804d493fd70b502ba2dc8378d1e.jpg",
-	"http://s1.dwstatic.com/group1/M00/DC/DE/765541319e54c50cfdd11f61acccfa6b.jpg",
-	"http://s1.dwstatic.com/group1/M00/5F/13/af21d3d3b1abeca42b5e25e6c34cc24a.jpg",
-	"http://s1.dwstatic.com/group1/M00/23/81/5ce6d878703de27329f81b5a1c1f29b9.jpg",
-	"http://s1.dwstatic.com/group1/M00/23/D1/bbba2a2b7cac6e87df68ce1debf378b0.jpg",
-	"http://s1.dwstatic.com/group1/M00/49/46/2dc607015cba6ff5a64ffb7756529464.jpg",
-	"http://img.jdxi.net/upload/auto_save_image/2012/08/093801uB3.jpg",
-	"http://img.jdxi.net/upload/2012/9/201209061657118868.jpg"};
+			"http://s1.dwstatic.com/group1/M00/7D/EC/370042fb083e699b5b9aab4955c09f7c.jpg",
+			"http://s1.dwstatic.com/group1/M00/73/94/0a2ac9f4dc0dda771aa2e55a562774b7.jpg",
+			"http://s1.dwstatic.com/group1/M00/98/20/f5cbfcde5cbfc6ad2c6492703c10864c.jpg",
+			"http://s1.dwstatic.com/group1/M00/B9/35/951731dae40399b668208456f4c17437.jpg",			
+			"http://s1.dwstatic.com/group1/M00/D4/8E/719343b6ff5b7b1ddc3c6bf8a6158680.jpg",
+			"http://s1.dwstatic.com/group1/M00/10/94/6737085d6e220cfef2748af371eed4da.jpg",
+			"http://s1.dwstatic.com/group1/M00/0B/6F/8dbdf6201af87470ff746757aefcb94b.jpg",
+			"http://s1.dwstatic.com/group1/M00/B0/CF/d50cfbf594edc761572feb080db1aecf.jpg",		
+			"http://s1.dwstatic.com/group1/M00/97/B6/0dc3417aa6f514fa93d5128e204ad276.jpg",
+			"http://s1.dwstatic.com/group1/M00/26/12/8b97dcad1ef3d6b8c7efb0739fc197c4.jpg",
+			
+			"http://s1.dwstatic.com/group1/M00/43/0C/0c6b3fee185a9f36c2df30962687d235.jpg",
+			"http://s1.dwstatic.com/group1/M00/9B/AB/a2498b783d643a4c55078d9b8420562b.jpg",			
+			"http://s1.dwstatic.com/group1/M00/00/EB/529e0f594251a9cb308f1d73bbffeec1.jpg",
+			"http://s1.dwstatic.com/group1/M00/3D/F2/2c8b7360d5e71ab80c23bf4dbb568311.jpg",
+			"http://s1.dwstatic.com/group1/M00/46/D2/e122eb8d0279421710b38928e5571e11.jpg",
+			"http://s1.dwstatic.com/group1/M00/7C/65/810540d5bcaefc9fd779e366f6cdda16.jpg",		
+			"http://s1.dwstatic.com/group1/M00/F2/13/73f020f544ef74d32bc19734a8a10a57.jpg",
+			"http://s1.dwstatic.com/group1/M00/80/20/88f03932e05378707d1b2ad70d0f5313.jpg",
+			"http://s1.dwstatic.com/group1/M00/EC/0B/cd74af045f35fea98ea106f0e2d668ad.jpg",
+			"http://s1.dwstatic.com/group1/M00/62/FA/faad76069152dd2f226dd8e86010d234.jpg",
+			
+			"http://s1.dwstatic.com/group1/M00/3D/AE/9f39c83ff6e07a74abe00391979ac4b2.jpg",
+			"http://s1.dwstatic.com/group1/M00/8D/E2/c9bc019f02e8f8bdec3389416b342310.jpg",
+			"http://s1.dwstatic.com/group1/M00/84/1D/0d5e797cf4bc2be59a35e4a71b6a97c6.jpg",
+			"http://s1.dwstatic.com/group1/M00/83/F3/b16481085cb3283800ac20c16c6a1be2.jpg",			
+			"http://s1.dwstatic.com/group1/M00/9C/A1/b6b53a29124c417d65c807aeeaa1e734.jpg",
+			"http://s1.dwstatic.com/group1/M00/33/A7/2f22e409f798762546c9023d92694db2.jpg",
+			"http://s1.dwstatic.com/group1/M00/B5/09/68040586ecd6a161432a5f1d0a345e98.jpg",
+			"http://s1.dwstatic.com/group1/M00/A6/79/b34609d335720c5b9893ffbdf6ef7589.jpg",		
+			"http://s1.dwstatic.com/group1/M00/83/92/be4d2b742788ae978c4216af98fe38c9.jpg",
+			"http://s1.dwstatic.com/group1/M00/9E/46/bc5e64c4be12d2074024cc9f661c259a.jpg",
+			
+			"http://s1.dwstatic.com/group1/M00/14/AE/43068057ed0fcd3261f1b9e0aa594614.jpg",
+			"http://s1.dwstatic.com/group1/M00/C6/F7/3b6d9a79851f9d6868f989affbea564a.jpg",	
+			"http://s1.dwstatic.com/group1/M00/F7/E2/03274b00d30c5474cb0bb9f4ef4a0b90.jpg",
+			"http://s1.dwstatic.com/group1/M00/5F/0E/80fc5f71b6d8e9a4c761876fc11c5edd.jpg",
+			"http://s1.dwstatic.com/group1/M00/37/73/3f055bf5ebe5e8f91ae9223beb91df87.jpg",
+			"http://s1.dwstatic.com/group1/M00/41/40/491d41be7889324907868f65a882f132.jpg",		
+			"http://s1.dwstatic.com/group1/M00/46/41/e03031ee161eb7f4e51f02e23a44c531.jpg",
+			"http://s1.dwstatic.com/group1/M00/60/56/1f665806ad995a10f9b90f17979dd7b1.jpg",
+			"http://s1.dwstatic.com/group1/M00/6B/C0/9cddc597dd3e40b98b4ed49f889cf655.jpg",
+			"http://s1.dwstatic.com/group1/M00/E4/A6/d6eda5c00aec0f1d6e153914814928b2.jpg",
+			
+			"http://s1.dwstatic.com/group1/M00/3D/4A/e06e360101c775f7f957da6670ff333b.jpg",
+			"http://s1.dwstatic.com/group1/M00/2B/F1/6e8f58520e25dba25bb6e1f0c0ab2dd4.jpg"};
 	String fp = "/sdcard/evil/";
-	String[] listTitle = new String[]{
-			"消暑","神奇的洞洞","白炽灯的辛苦","使用时间停止术",
-			"师父与徒弟","女泰山的救助","胸大哪都吃香","决斗原则",
-			"独特的她","过河","我的爱人是料理师","海边性感王","你是怎么知道的",
-			"看见美女以后的反应","使用产品前一定要阅读说明书","法术也有副作用",
-			"给人带来幸福的排水口","如何为女友挑选泳衣","正确的教学方式","该出手时就该出手",
-			"拜师","笔记是不能这么写的！","诱惑","战术"};
+	String name = "清新美女自然风采";
+
 	String[] n = new String[]{
-			listTitle[0]+".jpg",listTitle[1]+".jpg",listTitle[2]+".jpg",
-			listTitle[3]+".jpg",listTitle[4]+".jpg",listTitle[5]+".jpg",
-			listTitle[6]+".jpg",listTitle[7]+".jpg",listTitle[8]+".jpg",
-			listTitle[9]+".jpg",listTitle[10]+".jpg",listTitle[11]+".jpg",
-			listTitle[12]+".jpg",listTitle[13]+".jpg",listTitle[14]+".jpg",
-			listTitle[15]+".jpg",listTitle[16]+".jpg",listTitle[17]+".jpg",
-			listTitle[18]+".jpg",listTitle[19]+".jpg",listTitle[20]+".jpg",
-			listTitle[21]+".jpg",listTitle[22]+".jpg",listTitle[23]+".jpg"};
+			name+1+".jpg",name+2+".jpg",name+3+".jpg",
+			name+4+".jpg",name+5+".jpg",name+6+".jpg",
+			name+7+".jpg",name+8+".jpg",name+9+".jpg",
+			name+10+".jpg",name+11+".jpg",name+12+".jpg",
+			name+13+".jpg",name+14+".jpg",name+15+".jpg",
+			name+16+".jpg",name+17+".jpg",name+18+".jpg",
+			name+19+".jpg",name+20+".jpg",name+21+".jpg",
+			name+22+".jpg",name+23+".jpg",name+24+".jpg",
+			name+25+".jpg",name+26+".jpg",name+27+".jpg",
+			name+28+".jpg",name+29+".jpg",name+30+".jpg",
+			name+31+".jpg",name+32+".jpg",name+33+".jpg",
+			name+34+".jpg",name+35+".jpg",name+36+".jpg",
+			name+37+".jpg",name+38+".jpg",name+39+".jpg",
+			name+40+".jpg",name+41+".jpg",name+42+".jpg",};
 	String[] p = new String[]{fp+n[0],fp+n[1],fp+n[2],fp+n[3],
 fp+n[4],fp+n[5],fp+n[6],fp+n[7],
 			fp+n[8],fp+n[9],fp+n[10],fp+n[11],fp+n[12],fp+n[13],fp+n[14],fp+n[15],fp+n[16],
 			fp+n[17],fp+n[18],fp+n[19],fp+n[20],
-			fp+n[21],fp+n[22],fp+n[23]};
-	
-	String listText=null;
+			fp+n[21],fp+n[22],fp+n[23],fp+n[24],fp+n[25],fp+n[26],
+			fp+n[27],fp+n[28],fp+n[29],fp+n[30],fp+n[31],fp+n[32],fp+n[33],fp+n[34],fp+n[35],
+			fp+n[36],fp+n[37],fp+n[38],fp+n[39],
+			fp+n[40],fp+n[41]};
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,10 +137,9 @@ fp+n[4],fp+n[5],fp+n[6],fp+n[7],
 			@SuppressWarnings("unchecked")
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub	
-
+				// TODO Auto-generated method stub				
 				Intent intent1 = new Intent();			
-				intent1.setClass(ListActivity_1.this, ImageActivity.class);										
+				intent1.setClass(ListActivity_8.this, ImageActivity.class);										
 				Bundle bl = new Bundle();
 				bl.putString("path", p[arg2]);
 				bl.putString("imageUrl", u[arg2]);
@@ -123,13 +148,14 @@ fp+n[4],fp+n[5],fp+n[6],fp+n[7],
 				intent1.putExtras(bl);
 				startActivity(intent1);
 				
-				
-
 			}
 			
 			
 		});
-		
+		 KuguoAdsManager.getInstance().receivePushMessage(ListActivity_8.this, true);
+		 KuguoAdsManager.getInstance().showKuguoSprite(this, 0);
+		   
+	     KuguoAdsManager.getInstance().showKuguoSprite(this, 1);
 
 	}
 
@@ -137,15 +163,15 @@ fp+n[4],fp+n[5],fp+n[6],fp+n[7],
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 
 		
-		for(int i=0;i<23;i++){
+		for(int i=0;i<41;i++){
 			Map<String, Object> map = new HashMap<String, Object>();
 			 File file1 = new File(p[i]);
 	        	if(file1.exists()){
-	        		map.put("img", R.drawable.guren);
+	        		map.put("img", R.drawable.ic_launch1);
 	        	}else{
 	        		map.put("img", R.drawable.down_icon);
 	        	}
-			map.put("title", listTitle[i]);
+			map.put("title", n[i]);
 			
 			list.add(map);
 			

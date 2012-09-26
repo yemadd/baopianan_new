@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/lvse3" >
+    android:background="@drawable/bizhi" >
 
     <ViewFlipper
         android:id="@+id/viewFilpper"
@@ -47,7 +47,7 @@
                 android:layout_toLeftOf="@+id/button2"
                 android:background="@drawable/item_select"
                 android:drawableBottom="@drawable/btn_3"
-                android:text="色系军团"
+                android:text="清纯美女"
                 android:textColor="#5F9EA0"
                 android:textSize="20dp" />
 
@@ -130,7 +130,7 @@
                 android:background="@drawable/item_select"
                 android:drawableBottom="@drawable/btn_2"
                 android:drawableTop="@drawable/icon_3"
-                android:text="色系军团"
+                android:text="清纯美女"
                 android:textColor="#5F9EA0"
                 android:textSize="20dp" />
 
@@ -181,8 +181,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:textColor="#ffffffff"
-                android:textSize="30dp"
+                android:textColor="#5F9EA0"
+                android:textSize="15dp"
                 android:text="@string/aboutUs" />
         </RelativeLayout>
     </ViewFlipper>

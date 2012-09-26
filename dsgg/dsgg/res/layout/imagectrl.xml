@@ -3,7 +3,7 @@
     android:id="@+id/linearLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg"
+    android:background="@drawable/bizhi"
     android:orientation="vertical"
     android:weightSum="1" >
 
@@ -22,5 +22,5 @@
         android:layout_height="wrap_content"
         android:scaleType="matrix" >
     </ImageView>
-
+    
 </LinearLayout>
